@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pejerrey</title>
+    <!-- link de css -->
+    <link rel="stylesheet" href="pp.css">
+    <!-- link del icono -->
+    <link rel="icon" href="../assets/icon.svg">
+    <!-- link del cdn iconos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <!-- link de swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+</head>
+<body>
+    
+    <div class="grid-container">
+        <!-- header start -->
+        <header class="header">
+          <div class="container">
+            <div class="header-main">
+              <div class="logo">
+                <a href="../index.html"><img src="../images/logo.png" alt="" /></a>
+                <a href="../index.html">KONTIKI</a>
+              </div>
+              <div class="open-nav-menu">
+                <span></span>
+              </div>
+              <div class="menu-overlay"></div>
+              <!-- navigation menu start -->
+              <nav class="nav-menu">
+                <div class="close-nav-menu">
+                  <img src="../assets/close.svg" alt="close" />
+                </div>
+                <ul class="menu">
+                  <li class="menu-item">
+                    <a href="../index.html">inicio</a>
+                  </li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="../productos/productos.html" data-toggle="sub-menu">productos</a>
+                  </li>
+                  
+                  <li class="menu-item">
+                    <a href="#">sobre nosotros</a>
+                  </li>
+                </ul>
+              </nav>
+              <!-- navigation menu end -->
+            </div>
+          </div>
+        </header>
+        <!-- header end -->
+  
+        <!-- carrusel inicoio -->
+
+        <div class="carro">
+          <div class="container1">
+
+            <div class="atras">
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            </div>
+
+            <div class="1">
+              <div class="mySlides">
+                <img src="../images/pejerrey1.jpg" alt="imagen-1">
+              </div>
+              <div class="mySlides">
+                  <img src="../images/pejerrey2.jpg" alt="">
+              </div>
+              <div class="mySlides">
+                  <img src="../images/pejerrey3.jpg" alt="">
+              </div>
+
+              <div class="elements">
+                <span class="quadrate" onclick="currentSlide(1)"></span>
+                <span class="quadrate" onclick="currentSlide(2)"></span>
+                <span class="quadrate" onclick="currentSlide(3)"></span>
+            </div>
+            </div>
+
+            
+
+            <div class="sigue">
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            
+            
+
+            
+            
+    
+            
+          </div>
+        </div>
+        
+
+      <!-- carrusel finn -->
+
+        <!-- slider start -->
+      <div class="datos">
+        <div class="contenedor-datos">
+            <!-- <div class="portada">
+                <img src="../images/caba11.png" alt="">
+            </div> -->
+            
+            <!-- <div class="sinopsis">
+                <p>Después de "Capitán América: Guerra Civil", Scott Lang lidia con las consecuencias de sus elecciones como superhéroe y padre. Mientras lucha por mantener un equilibrio entre su vida hogareña y sus responsabilidades como Ant-Man, se enfrenta a Hope van Dyne y al Dr. Hank Pym con una nueva misión urgente....</p>
+            </div> -->
+            <div class="extras">
+                <div class="titulo">
+                    <h1>Jurel</h1>
+                </div>
+                <p> <span>Peso: </span> 14 kilos.  </p>
+                <p> <span>Vida útil: </span> 24 meses </p>
+                <p> <span>Vitaminas: </span>  vitamina A vitamina B vitamina E vitamina K y <br> el grupo B y es una excelente fuente de otros micro nutrientes. </p>
+                <p> <span>Almacenamiento: </span>  - 18º C o menor </p>
+                <p> <span>Precio:  </span>  S/ 140 soles por caja </p>
+              
+            </div>
+        </div>
+
+        <!-- <div class="compra">
+          <button> comprar ahora</button>
+        </div> -->
+      </div>
+      <!-- slider end -->
+      
+   
+      <!-- estrenos start -->
+      <div class="ver-peli">
+         
+        <div id="smart-button-container">
+            <div style="text-align: center;">
+              <div id="paypal-button-container"></div>
+            </div>
+          </div>
+        <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+        <script>
+          function initPayPalButton() {
+            paypal.Buttons({
+              style: {
+                shape: 'pill',
+                color: 'gold',
+                layout: 'vertical',
+                label: 'buynow',
+                
+              },
+      
+              createOrder: function(data, actions) {
+                return actions.order.create({
+                  purchase_units: [{"description":"140 soles por caja ","amount":{"currency_code":"USD","value":140}}]
+                });
+              },
+      
+              onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                  
+                  // Full available details
+                  console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+      
+                  // Show a success message within this page, e.g.
+                  const element = document.getElementById('paypal-button-container');
+                  element.innerHTML = '';
+                  element.innerHTML = '<h3>¡GRACIAS POR SU COMPRA!</h3>';
+      
+                  // Or go to another URL:  actions.redirect('thank_you.html');
+                  
+                });
+              },
+      
+              onError: function(err) {
+                console.log(err);
+              }
+            }).render('#paypal-button-container');
+          }
+          initPayPalButton();
+        </script>
+      </div>
+      <!-- strenos end -->
+
+
+      
+
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="pescado.js"></script>
+</body>
+</html>
